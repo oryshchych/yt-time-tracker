@@ -8,10 +8,6 @@ export interface User {
   website: string;
 }
 
-export interface UsersList {
-  data: User[];
-}
-
 interface Address {
   street: string;
   city: string;
