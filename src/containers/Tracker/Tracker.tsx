@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTypedSelector } from "../../hooks/hooks";
 import classes from "./Tracker.module.css";
-import { NewTrackNote } from "../NewTrackNote/NewTrackNote";
+import { NewTrackNote } from "../../components/NewTrackNote/NewTrackNote";
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "../../store/actions/users";
 import { SelectDropdown } from "../../components/SelectDropdown/SelectDropdown";
