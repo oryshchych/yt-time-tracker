@@ -37,6 +37,8 @@ export const NewTrackNote: React.FC<NewTrackProps> = (props) => {
       note: note,
     };
     dispatch(addNewTrack(newTrack));
+    setTime("");
+    setNote("");
   };
   if (props.show) {
     return (
