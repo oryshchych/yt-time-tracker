@@ -35,6 +35,7 @@ export const NewTrackNote: React.FC<NewTrackProps> = (props) => {
       userName: props.userData.name,
       time: time,
       note: note,
+      id: `${new Date().getTime()}`,
     };
     dispatch(addNewTrack(newTrack));
     setTime("");

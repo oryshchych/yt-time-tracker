@@ -24,6 +24,7 @@ export interface NewTrack {
   userName: string;
   time: string;
   note: string;
+  id: string;
 }
 
 export interface UsersStoreState {

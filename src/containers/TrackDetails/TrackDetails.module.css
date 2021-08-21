@@ -1,0 +1,7 @@
+.TrackDetails {
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: start;
+    font-size: 1.5em;
+}

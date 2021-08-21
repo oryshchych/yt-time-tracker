@@ -9,8 +9,8 @@ const TrackList: React.FC = () => {
   return (
     <div className={classes.TrackList}>
       <p>Here we can see all track notes of our users:</p>
-      {tracks.map((track, idx) => {
-        return <TrackItem track={track} key={idx} />;
+      {tracks.map((track) => {
+        return <TrackItem track={track} key={track.id} />;
       })}
     </div>
   );

@@ -11,7 +11,6 @@ export const Tracker: React.FC = () => {
   const dispatch = useDispatch();
   const [userId, setUserId] = useState("");
   const [userName, setUserName] = useState("");
-  console.log(users);
 
   useEffect(() => {
     dispatch(fetchUsers());
