@@ -12,7 +12,7 @@ export const tracksReducer = (
   switch (action.type) {
     case ActionTypes.ADD_NEW_TRACK:
       return Object.assign({}, state, {
-        tracks: [...state.tracks, [action.payload]],
+        tracks: [...state.tracks, action.payload],
       });
     default:
       return state;

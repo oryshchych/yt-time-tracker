@@ -1,43 +1,51 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { User } from "../../interfaces/users";
+import React, { useState, useEffect } from "react";
+import { useTypedSelector } from "../../hooks/hooks";
 import classes from "./Tracker.module.css";
-import * as actions from "../../store/actions/actions";
+import { NewTrackNote } from "../NewTrackNote/NewTrackNote";
+import { useDispatch } from "react-redux";
+import { fetchUsers } from "../../store/actions/users";
+import { SelectDropdown } from "../../components/SelectDropdown/SelectDropdown";
 
-interface TrackerProps {
-  users: User[];
-  fetchUsers: Function;
-  history: any;
-}
+export const Tracker: React.FC = () => {
+  const { users, error, loading } = useTypedSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const [userId, setUserId] = useState("");
+  const [userName, setUserName] = useState("");
+  console.log(users);
 
-export const Tracker = (props: TrackerProps) => {
   useEffect(() => {
-    props.fetchUsers();
+    dispatch(fetchUsers());
   }, []);
+
+  useEffect(() => {
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].id === +userId) {
+        setUserName(users[i].name);
+        break;
+      }
+    }
+  }, [userId]);
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setUserId(e.target.value);
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <div className={classes.Tracker}>
-      <h1>Please select a user:</h1>
-      <select className={classes.Dropdown}>
-        {props.users.map((user) => {
-          return (
-            <option key={user.id} value="user.id" className={classes.Option}>
-              {user.name}
-            </option>
-          );
-        })}
-      </select>
+      <SelectDropdown
+        value={userId}
+        options={users}
+        onChange={onChangeHandler}
+      />
+      <NewTrackNote
+        show={userId ? true : false}
+        userData={{ id: +userId, name: userName }}
+      />
     </div>
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  users: state.users,
-});
-
-const mapDispatchToProps = (dispatch: Function) => {
-  return {
-    fetchUsers: () => dispatch(actions.fetchUsers()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Tracker);
+export default Tracker;

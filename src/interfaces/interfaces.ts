@@ -20,8 +20,8 @@ interface Address {
 }
 
 export interface NewTrack {
-  is: number;
-  name: string;
+  userId: number;
+  userName: string;
   time: string;
   note: string;
 }
