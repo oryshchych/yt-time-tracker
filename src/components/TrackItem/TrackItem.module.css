@@ -1,0 +1,25 @@
+.TrackItem {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.TrackItem:hover {
+    background-color: #d5e3e3;
+}
+
+.UserId {
+    width: 10%;
+}
+
+.UserName {
+    flex: 1;
+}
+
+.Time {
+    width: 25%;
+}

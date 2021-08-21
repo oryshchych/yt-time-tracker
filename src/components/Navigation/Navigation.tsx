@@ -5,7 +5,7 @@ import classes from "./Navigation.module.css";
 export const Navigation = () => {
   return (
     <nav className={classes.Navigation}>
-      <NavLink activeClassName={classes.Active} to="/">
+      <NavLink activeClassName={classes.Active} to="/" exact>
         Tracker
       </NavLink>
       <NavLink activeClassName={classes.Active} to="/tracks">
