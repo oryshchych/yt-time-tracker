@@ -1,13 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
+import { Navigation } from "../Navigation/Navigation";
 
 const header = () => {
   return (
     <header className={classes.Header}>
-      <div>
-        <NavLink to="/">YT - Timer Tracker</NavLink>
-      </div>
+      <Link to="/">YT - Timer Tracker</Link>
+      <Navigation />
     </header>
   );
 };

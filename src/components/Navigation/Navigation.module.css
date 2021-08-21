@@ -1,0 +1,14 @@
+
+.Navigation {
+    height: 100%;
+}
+
+.Navigation a {
+    padding: 20px;
+    height: 100%;
+}
+
+.Active {
+    color: #114711e9;
+    background-color: #4ba8a8;
+}
