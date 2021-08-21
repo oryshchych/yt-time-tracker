@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { NewTrack } from "../../interfaces/interfaces";
 import { addNewTrack } from "../../store/actions/tracks";
+import classes from "./NewTrackNote.module.css";
 
 interface NewTrackProps {
   userData: {
@@ -40,25 +40,32 @@ export const NewTrackNote: React.FC<NewTrackProps> = (props) => {
   };
   if (props.show) {
     return (
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={onSubmitHandler} className={classes.NewTrack}>
         <p>Name: {props.userData.name}</p>
         <p>Id: {props.userData.id}</p>
 
-        <label htmlFor="time">
-          The amount of time the user spent on a project
+        <label htmlFor="time" className={classes.Label}>
+          The amount of time the user spent on a project:
         </label>
-        <input type="text" id="time" value={time} onChange={onChangeHandler} />
-        <label htmlFor="note">
-          A note about the project the user worked on
+        <input
+          type="number"
+          id="time"
+          value={time}
+          onChange={onChangeHandler}
+          required
+        />
+        <label htmlFor="note" className={classes.Label}>
+          A note about the project the user worked on:
         </label>
         <textarea
+          required
           id="note"
           cols={30}
-          rows={10}
+          rows={6}
           value={note}
           onChange={onChangeHandler}
         ></textarea>
-        <input type="submit" value="Save" />
+        <input type="submit" value="Save" className={classes.Submit} />
       </form>
     );
   } else return null;

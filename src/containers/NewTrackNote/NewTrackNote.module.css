@@ -1,0 +1,32 @@
+
+.NewTrack {
+    margin: 80px;
+}
+.NewTrack p {
+    display: inline-block;
+    font-size: 2em;
+    margin: 10px 20px;
+}
+
+.Label {
+    display: block;
+    margin: 20px;
+}
+
+.NewTrack input[type="number"] {
+    width: 250px;
+    height: 30px;
+}
+
+.NewTrack textarea {
+    width: 250px;
+}
+
+.Submit {
+    display: block;
+    width: 100px;
+    height: 30px;
+    margin: 10px auto;
+    background-color: #d5e3e3;
+    cursor: pointer;
+}
